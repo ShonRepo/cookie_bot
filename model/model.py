@@ -1,5 +1,6 @@
 import uuid
 
+
 class Model:
     __reference = None
 
@@ -8,6 +9,7 @@ class Model:
 
     def all(self):
         return self.__reference.get()
+
     def find_qeury(self, id):
         return self.__reference.child(str(id))
 
