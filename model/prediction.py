@@ -11,7 +11,7 @@ class Prediction(Model):
 
         offset = page * per_page
         index = 0
-        for prediction in super().all().values():
+        for prediction in reversed(super().all().values()):
             if index >= offset and index <= offset + per_page:
                 predictions.append(str(index) + ". " + prediction['title'])
 
@@ -20,4 +20,4 @@ class Prediction(Model):
         return [len(predictions) - offset >= per_page, '\n'.join(predictions)]
 
     def ids(self):
-        return list(super().all().keys())
+        return list(reversed(list(super().all().keys())))
