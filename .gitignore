@@ -1,1 +1,6 @@
 bot_key
+.upm
+.config
+.cache
+
+replit_zip_error_log.txt

@@ -5,6 +5,7 @@ from background import keep_alive
 from keyboards import generate_page_buttons, predictions_callback
 
 from model.prediction import Prediction
+from model.language import Language
 
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram import Bot, types
@@ -134,7 +135,9 @@ async def process_set_prediction_id_by_remove(message: types.Message):
 
 @dp.message_handler(state='*')
 async def process_start_command(message: types.Message):
-    await bot.send_message(message.from_user.id, 'Введите язык')
+    languages = Language()
+
+    await bot.send_message(message.from_user.id, 'Введите язык \nСейчас доступны:\n\n' + languages.all())
     await State.select_language.set()
 
 
