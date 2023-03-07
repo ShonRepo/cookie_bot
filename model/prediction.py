@@ -13,7 +13,7 @@ class Prediction(Model):
         index = 0
         for prediction in super().all().values():
             if index >= offset and index <= offset + per_page:
-                predictions.append(str(index) + "\. " + prediction['title'])
+                predictions.append(str(index) + ". " + prediction['title'])
 
             index = index + 1
 

@@ -23,7 +23,7 @@ if os.path.isfile(path):
 if os.environ.get('bot_key') != None:
     bot_token = os.environ['bot_key']
 
-bot = Bot(bot_token, parse_mode=types.ParseMode.MARKDOWN_V2)
+bot = Bot(bot_token)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
 
