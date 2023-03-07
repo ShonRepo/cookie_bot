@@ -1,3 +1,4 @@
+import datetime
 import uuid
 
 
@@ -7,8 +8,8 @@ class Model:
     def __init__(self, reference):
         self.__reference = reference
 
-    def all(self):
-        return self.__reference.get()
+    def all(self, order='created_at'):
+        return self.__reference.order_by_child(order).get()
 
     def find_qeury(self, id):
         return self.__reference.child(str(id))
@@ -17,6 +18,8 @@ class Model:
         return self.find_qeury(id).get()
 
     def add(self, object):
+        object['created_at'] = str(datetime.datetime.now())
+
         self.__reference.child(str(uuid.uuid4())).set(object)
 
     def update(self, id, object):
