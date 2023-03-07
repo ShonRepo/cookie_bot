@@ -7,4 +7,4 @@ class Language(Model):
         super().__init__(predictions)
 
     def all(self):
-        '\n'.join(super().all().values())
+        return '\n'.join(list(super().all().keys()))

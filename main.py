@@ -137,7 +137,7 @@ async def process_set_prediction_id_by_remove(message: types.Message):
 async def process_start_command(message: types.Message):
     languages = Language()
 
-    await bot.send_message(message.from_user.id, 'Введите язык \nСейчас доступны:\n\n' + languages.all())
+    await bot.send_message(message.from_user.id, 'Введите язык \nСейчас доступны:\n' + languages.all())
     await State.select_language.set()
 
 
